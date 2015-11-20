@@ -1,0 +1,115 @@
+to pie :size :slices
+	repeat :slices [
+		repeat (360/:slices) + 1 [
+			fd :size / 360
+			rt 1
+		] 
+		rt 89 
+		fd :size / pi 
+		bk :size / pi
+		lt 90
+	]
+end
+to xpie :size :slices
+
+	MAKE "Rarray (ARRAY 6 1)
+	SETITEM 6 :Rarray 255
+	SETITEM 5 :Rarray 230
+	SETITEM 4 :Rarray 220
+	setitem 3 :Rarray 000
+	setitem 2 :Rarray 000
+	setitem 1 :Rarray 100
+	
+	MAKE "Garray (ARRAY 6 1)
+	SETITEM 6 :Garray 000
+	SETITEM 5 :Garray 60
+	SETITEM 4 :Garray 90
+	setitem 3 :Garray 255
+	setitem 2 :Garray 30
+	setitem 1 :Garray 000
+	
+	MAKE "Barray (ARRAY 6 1)
+	SETITEM 6 :Barray 000
+	SETITEM 5 :Barray 000
+	SETITEM 4 :Barray 000
+	setitem 3 :Barray 000
+	setitem 2 :Barray 255
+	setitem 1 :Barray 200
+	
+	make "counter 1
+
+	repeat :slices [
+		if :counter = 6 [
+			make "counter 0
+			]
+		make "counter (:counter + 1)
+		if :counter = 1 [
+			setpc [ 255 000 000]
+			]
+		if :counter = 2 [
+			setpc [ 255 90 000]
+			]
+		if :counter = 3 [
+			setpc [ 255 200 000]
+			]
+		if :counter = 4 [
+			setpc [ 000 200 000]
+			]
+		if :counter = 5 [
+			setpc [ 000 30 255]
+			]
+		if :counter = 6 [
+			setpc [ 170 000 230]
+			]
+		repeat (360/:slices) + 1 [
+			fd :size / 360
+			rt 1
+		] 
+		rt 89 
+		fd :size / pi 
+		bk :size / pi
+		lt 90
+	]
+end
+
+to setpie :x
+	repeat 6 [
+		repeat :x [
+			fd 1
+			rt 1
+		] 
+		rt 89 
+		fd 360 / pi 
+		bk 360 / pi
+		lt 90
+	]
+end
+
+; Call "start" to run the program. Modified from Papert's koch demo for FMSLogo by Shervin Emami, 13th Oct 2009.
+
+
+to start
+  ; Start from the bottom of the screen
+  sety -100
+
+  ; Run "koch" using detail of 5 and size of 4.
+  koch 5 4
+end
+
+
+to koch :count :length
+  right 30 line :count :length
+  right 120 line :count :length
+  right 120 line :count :length
+end
+
+to line :count :length
+ ifelse :count = 1 [forward :length] ~
+ [ ~
+   make "count :count - 1 ~
+   line :count :length ~
+   left 60 line :count :length ~
+   right 120 line :count :length ~
+   left 60 line :count :length ~
+  ]
+end
