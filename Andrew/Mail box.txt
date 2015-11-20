@@ -11,3 +11,7 @@ print("hello world")
 Hope you figure that out.
 
 --Luke
+
+I tried to fix your program for 3.5, but it didn't really work.
+
+--Luke
