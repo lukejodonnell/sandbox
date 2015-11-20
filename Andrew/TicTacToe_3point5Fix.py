@@ -30,7 +30,7 @@ def updateLegalMoves(move,legalMoves):
     legalMoves.remove(move)
 
 def askForMove(legalMoves):
-    move = raw_input("Enter the coordinate of your next move (Ex. a2): ")
+    move = input("Enter the coordinate of your next move (Ex. a2): ")
     legal = isLegal(move,legalMoves)
     if legal == False:
         print("Move invalid, please enter a valid move.")
