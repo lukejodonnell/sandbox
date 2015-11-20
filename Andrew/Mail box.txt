@@ -1,0 +1,13 @@
+Hey Andrew I made this place to send you messages
+
+Anyway, new python doesn't accept this tic tac toe programs "print" syntax, the old way was:
+
+print "hello world"
+
+The new way is:
+
+print("hello world")
+
+Hope you figure that out.
+
+--Luke
