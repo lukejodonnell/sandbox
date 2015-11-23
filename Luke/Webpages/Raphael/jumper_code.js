@@ -5,18 +5,18 @@ window.onload = function() {
 	var jumping = false;
 	
 	function jumpDown() {
-	    rectangle.animate({y: '400'}, 500, '<');
+	    rectangle.animate({y: '300'}, 500, '<');
 	};
 	
     function jumpUp() {
-        rectangle.animate({y: '50'}, 500, '>', 'jumpDown()');
+        rectangle.animate({y: '50'}, 500, '>', jumpDown );
 	};
 	
 	function runloop(s) {
 		while (s.keyCode != 32) {
-		    jump();
+		    jumpUp();
 		};
 	};
 	
-	jumpUp();
+	rectangle.click(jumpUp);
 };
