@@ -1,0 +1,15 @@
+How to load a fresh master copy:
+
+git pull
+
+How to mark files for commit:
+
+git add -A
+
+How to commit changes to staging area:
+
+git commit -a -m "<summary of changes goes here>"
+
+How to submit changes in staging area to master copy:
+
+git push (you will be prompted for you user name and password, if you are not approved to push let me know and I will add your user name) 
