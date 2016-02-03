@@ -1,3 +1,5 @@
+running = True
+
 #The following three lines import a list of 1000 prime numbers from the file PrimeNumbersList.txt and store it in the list primes[]
 f = open("./PrimeNumbersList.txt")
 primes = f.readlines()
@@ -17,5 +19,8 @@ def primefac(number):
 	if number != 1:
 		print(number)
 		
-testnum = int(input("what do you want the prime factorization of?"))
-primefac(testnum)
+while running:
+	testnum = int(input("what do you want the prime factorization of?"))
+	primefac(testnum)
+	if input("Do you want to factorize another number? y/n ") != "y":
+		running = False
