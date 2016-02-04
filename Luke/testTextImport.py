@@ -1,7 +1,7 @@
 f = open("./PrimeNumbersList.txt")
 lines = f.readlines()
-
 lines = list(map(int, lines))
+
 
 number = 1
 
